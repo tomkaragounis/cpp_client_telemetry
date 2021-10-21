@@ -4,7 +4,7 @@
 
 [submodule "lib/modules"]
 	path = lib/modules
-	url = ../cpp_client_telemetry_modules.git
+	url = https://github.com/microsoft/cpp_client_telemetry_modules.git
 	branch = master
 
 [submodule "third_party/krabsetw"]
