@@ -14,6 +14,8 @@ set(INSTALL_INC_DIR "${CMAKE_INSTALL_PREFIX}/include" CACHE PATH "Installation d
 # We ask for 14, but we may get C++11 on older gcc-4.x and gcc-5.x
 set(CMAKE_CXX_STANDARD 14)
 
+#set(CMAKE_OSX_SYSROOT /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk)
+
 if (NOT TARGET_ARCH)
   set(TARGET_ARCH ${CMAKE_SYSTEM_PROCESSOR})
 endif()
@@ -236,9 +238,9 @@ endif()
 ################################################################################################
 option(BUILD_HEADERS      "Build API headers"       YES)
 option(BUILD_LIBRARY      "Build library"           YES)
-option(BUILD_TEST_TOOL    "Build console test tool" YES)
-option(BUILD_UNIT_TESTS   "Build unit tests"        YES)
-option(BUILD_FUNC_TESTS   "Build functional tests"  YES)
+option(BUILD_TEST_TOOL    "Build console test tool" NO)
+option(BUILD_UNIT_TESTS   "Build unit tests"        NO)
+option(BUILD_FUNC_TESTS   "Build functional tests"  NO)
 option(BUILD_JNI_WRAPPER  "Build JNI wrapper"       NO)
 option(BUILD_OBJC_WRAPPER "Build Obj-C wrapper"     YES)
 option(BUILD_PACKAGE      "Build package"           YES)
@@ -292,8 +294,8 @@ endif()
 
 if(BUILD_UNIT_TESTS OR BUILD_FUNC_TESTS)
   message("Building tests")
-  enable_testing()
-  add_subdirectory(tests)
+#  enable_testing()
+#  add_subdirectory(tests)
 endif()
 
 ################################################################################################
